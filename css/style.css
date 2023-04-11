@@ -1,0 +1,17 @@
+/*
+RESET
+*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#background{
+    background-color: aqua;
+    padding: 20px;
+}
+.container{
+    height: 100vh;
+    color: white;
+    background-color: darkblue;
+}
