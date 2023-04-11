@@ -3,6 +3,7 @@ $number = $_GET['input'];
 function randomPassword($number)
 {
     $letter = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $special = '!@#$%^&*()_+-={}[]|:;<>,.?/';
     $pass = array();
     $length = strlen($letter) - 1; 
     for ($i = 0; $i < $number ; $i++) {
@@ -23,13 +24,15 @@ function randomPassword($number)
 </head>
 <body>
     <form action="index.php" method="GET">
-        <input name="input" type="number" placeholder="Inserire numero caratteri per la password">
+        <label for="input"><h4>Inserisci il numero di caratteri della tua password con un massimo di 16 caratteri</h4></label>
+        <input name="input" type="number">
+        <button type="submit">Invia</button>
     </form>
-    <?php if (isset($_REQUEST['input'])) { ?>
+    <?php if ($number <= 16 && $number > 0) { ?>
         <h1>La tua password è </h1>
-    <?php } ?>
-        <h2><?php echo randomPassword($number);?></h2>
-    
+        <p><?php echo randomPassword($number);?></p>
+        <?php } else {?>
+            <p>Il numero di caratteri non è valido</p>
+        <?php } ?>
 </body>
-
 </html>
